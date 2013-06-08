@@ -8,13 +8,16 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
+    puts @params
+
     if params[:emotion_id]
-	@posts = Post.where("emotion_id = ?", emotion_id).order("created_at DESC")
-    elsif params[:theme_id]
-	@posts = Post.where("user_id = ? and theme_id = ?", [current_user.id, params[:theme_id]]).order("created_at DESC")
+	  @posts = Post.where("emotion_id = ?", params[:emotion]).order("created_at DESC")
+    elsif params[:theme]
+	  @posts = Post.where("user_id = ? and theme_id = ?", [current_user.id, params[:theme]]).order("created_at DESC")
     else
-	@posts = []
+	  @posts = []
     end
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @posts }

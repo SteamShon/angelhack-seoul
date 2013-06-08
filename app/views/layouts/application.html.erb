@@ -9,6 +9,7 @@
   <%= javascript_include_tag "highcharts-more" %>
   <%= csrf_meta_tags %>
 </head>
+<body>
   <div data-role='page'>
     
     <div data-role="header">
@@ -16,7 +17,7 @@
     </div><!-- /header -->
     
     <div data-role="content">
-      <p>Hello world</p>
+      <%= yield %>
     </div><!-- /content -->
     
     <!-- <div data-role="footer">
@@ -25,9 +26,6 @@
     <!-- /footer -->
   </div>
 
-<body>
-
-<%= yield %>
 
 </body>
 </html>

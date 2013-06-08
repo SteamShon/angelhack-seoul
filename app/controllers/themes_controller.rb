@@ -19,20 +19,22 @@ class ThemesController < ApplicationController
   # GET /themes/1
   # GET /themes/1.json
   def show
-    @user_themes_feelings = Post.find_all_by_theme_id(params[:id])
-  
-    @data = {}
-    @user_themes_feelings.each_with_index do |post, idx|
-      if @data.has_key?(post.emotion_id) == false
-        @data[post.emotion_id] = []
-      end
-      @data[post.emotion_id] << [idx, post.emotion_id, 50]
-    end
+    @theme = Theme.find(params[:id])    
+    @posts = @theme.posts
     
     respond_to do |format|
-      format.html # show.html.erb
+      format.html { render "/posts/index" }# show.html.erb
       format.json { render json: @theme }
-      format.js { }#render json: @user_themes_feeling }
+      format.js {
+        @data = {}
+        @posts.each_with_index do |post, idx|
+          if @data.has_key?(post.emotion_id) == false
+            @data[post.emotion_id] = []
+          end
+          @data[post.emotion_id] << [idx, post.emotion_id, 50]
+        end
+      }
+      #render json: @user_themes_feeling }
     end
 
   end

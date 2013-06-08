@@ -1,5 +1,4 @@
 <h1>Listing emotions</h1>
-
 <table>
   <tr>
     <th>Emotion type</th>
@@ -14,6 +13,7 @@
     <td><%= link_to 'Show', emotion %></td>
     <td><%= link_to 'Edit', edit_emotion_path(emotion) %></td>
     <td><%= link_to 'Destroy', emotion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Test', posts_path(@emotion), method: :get, rel: "external" %></td>
   </tr>
 <% end %>
 </table>

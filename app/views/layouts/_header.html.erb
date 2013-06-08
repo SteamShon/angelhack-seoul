@@ -1,8 +1,8 @@
 <div data-role='navbar'>
   <ul>
     <% if current_user and current_user.authentications.size > 0 %>
-      <li><a href='#' class='ui-btn-active'>Home</a></li>
-      <li><%= link_to 'My Page', '#' %></li>
+      <li><%= link_to 'Home', emotions_path, class: "ui-btn-active" %></li>
+      <li><%= link_to 'My Page', themes_path %></li>
       <li><a href='#'>Write</a></li>
       <li><%= render partial: "/authentications/auth", locals: { authentications: current_user.authentications } %></li>
     <% else %>
