@@ -4,14 +4,10 @@
       <nav>
         <ul class="nav pull-left">
           <li><%= link_to "Home", signed_in? ? '#' : root_path %></li>
-<<<<<<< HEAD
-          <li><%= link_to "Help", '#' %></li>
-=======
           <li><%= link_to "My Page", '#' %></li>
 	  <li><%= link_to "Post", '#' %></li>
         </ul>
 	<ul class="nav pull-right">
->>>>>>> 2006f6f0445ed32139e31146b2b0590e9133384e
           <% if current_user and current_user.authentications.size > 0 %>
             <li><%= render partial: "/authentications/auth", locals: { authentications: current_user.authentications } %></li>
           <% else %>
