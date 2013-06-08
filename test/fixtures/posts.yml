@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  theme_id: 1
+  emotion_id: 1
+  title: MyString
+  body: MyText
+  user_id: 1
+
+two:
+  theme_id: 1
+  emotion_id: 1
+  title: MyString
+  body: MyText
+  user_id: 1
