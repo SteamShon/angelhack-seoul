@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130608073200) do
+ActiveRecord::Schema.define(:version => 20130608074258) do
 
   create_table "comments", :force => true do |t|
     t.text     "body"
@@ -25,6 +25,14 @@ ActiveRecord::Schema.define(:version => 20130608073200) do
     t.string   "emotion_type"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+  end
+
+  create_table "images", :force => true do |t|
+    t.string   "path"
+    t.string   "title"
+    t.integer  "post_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "posts", :force => true do |t|
