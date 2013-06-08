@@ -5,11 +5,10 @@
         <ul class="nav pull-right">
           <li><%= link_to "Home", signed_in? ? '#' : root_path %></li>
           <li><%= link_to "Help", '#' %></li>
-          <% if signed_in? %>
-            <li>
-	    </li>
+          <% if current_user.authentications.size > 0 %>
+            <li><%= render partial: "/authentications/auth", locals: { authentications: current_user.authentications } %></li>
           <% else %>
-            <li><%= link_to "Sign in", signin_path %></li>
+            <li><%= render partial: "/authentications/form" %></li>
           <% end %>
         </ul>
       </nav>

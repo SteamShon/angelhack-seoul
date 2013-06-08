@@ -1,41 +1,18 @@
-<%= form_for(@authentication) do |f| %>
-  <% if @authentication.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@authentication.errors.count, "error") %> prohibited this authentication from being saved:</h2>
 
-      <ul>
-      <% @authentication.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<a href="/auth/twitter" class="auth_provider">
+  <%= image_tag "twitter_64.png", :size => "64x64", :alt => "Twitter" %>
+  Twitter
+</a>
+<a href="/auth/facebook" class="auth_provider">
+  <%= image_tag "facebook_64.png", :size => "64x64", :alt => "Facebook" %>
+  Facebook
+</a>
+<div class="clear"></div>
 
-  <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :provider %><br />
-    <%= f.text_field :provider %>
-  </div>
-  <div class="field">
-    <%= f.label :uid %><br />
-    <%= f.text_field :uid %>
-  </div>
-  <div class="field">
-    <%= f.label :index %><br />
-    <%= f.text_field :index %>
-  </div>
-  <div class="field">
-    <%= f.label :create %><br />
-    <%= f.text_field :create %>
-  </div>
-  <div class="field">
-    <%= f.label :destroy %><br />
-    <%= f.text_field :destroy %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<% unless user_signed_in? %>
+  <p>
+    <strong>Don't use these services?</strong>
+    <%= link_to "Sign up", new_user_registration_path %> or
+    <%= link_to "sign in", new_user_session_path %> with a password.
+  </p>
 <% end %>
