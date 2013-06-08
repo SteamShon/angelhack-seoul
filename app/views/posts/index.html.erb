@@ -6,6 +6,7 @@
           <td><%= post.title %></td>
           <td><%= post.body %></td>
           <td><%= image_tag post.photo.url(:thumb) %></td>
+          <td><%= post.user.email %></td>
           <td><%= link_to 'Show', post %></td>
           <td><%= link_to 'Edit', edit_post_path(post) %></td>
           <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>

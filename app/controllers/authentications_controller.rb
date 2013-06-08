@@ -15,7 +15,8 @@ class AuthenticationsController < ApplicationController
       redirect_to authentications_url
     else
       user = User.new
-      user.email = ""
+      puts omniauth.to_json
+      user.email = omniauth['info']['urls']['Twitter']
       puts omniauth
       user.apply_omniauth(omniauth)
       if user.save
