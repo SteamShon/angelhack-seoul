@@ -5,17 +5,13 @@ class PostsController < ApplicationController
     redirect_to root_path unless user_signed_in?
   end
   
-  # GET /posts
-  # GET /posts.json
   def index
-    puts @params
-
-    if params[:emotion_id]
-	  @posts = Post.where("emotion_id = ?", params[:emotion]).order("created_at DESC")
+    if params[:emotion]
+	    @posts = Post.where("emotion_id = ?", params[:emotion]).order("created_at DESC")
     elsif params[:theme]
-	  @posts = Post.where("user_id = ? and theme_id = ?", [current_user.id, params[:theme]]).order("created_at DESC")
+	    @posts = Post.where("user_id = ? and theme_id = ?", [current_user.id, params[:theme]]).order("created_at DESC")
     else
-	  @posts = []
+	    @posts = Post.all
     end
 
     respond_to do |format|
