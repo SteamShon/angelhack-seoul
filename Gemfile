@@ -15,6 +15,7 @@ gem 'omniauth-twitter'
 gem 'safe_attributes'
 gem 'twitter'
 gem 'fb_graph'
+gem 'paperclip', '~> 3.0'
 
 # Gems used only for assets and not required
 # in production environments by default.
