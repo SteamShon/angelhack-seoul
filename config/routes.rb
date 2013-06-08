@@ -1,21 +1,12 @@
 Alto::Application.routes.draw do
+  match '/auth/:provider/callback' => 'authentications#create'
   get "static_page/index"
-
+  resources :authentications
   resources :images
-
-
   resources :comments
-
-
   resources :emotions
-
-
   resources :posts
-
-
   resources :themes
-
-
   devise_for :users
 
   # The priority is based upon order of creation:

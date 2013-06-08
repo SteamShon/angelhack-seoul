@@ -11,5 +11,5 @@ class User < ActiveRecord::Base
   has_many :themes
   has_many :posts
   has_many :comments
-  has_many :authentications 
+  has_many :authentications
 end
