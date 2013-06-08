@@ -7,12 +7,17 @@
 
 <p>
   <b>Emotion:</b>
-  <%= @post.emotion.emtion_type %>
+  <%= render partial: 'emotions/emotion' %>
+
 </p>
 
 <p>
   <b>Title:</b>
   <%= @post.title %>
+</p>
+
+<p>
+  <%= image_tag @post.photo.url %>
 </p>
 
 <p>

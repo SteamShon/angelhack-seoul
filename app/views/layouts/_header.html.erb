@@ -1,4 +1,18 @@
-<div class="navbar navbar-fixed-top navbar-inverse">
+<div data-role='navbar'>
+  <ul>
+    <% if current_user and current_user.authentications.size > 0 %>
+      <li><a href='#' class='ui-btn-active'>Home</a></li>
+      <li><%= link_to 'My Page', '#' %></li>
+      <li><a href='#'>Write</a></li>
+      <li><%= render partial: "/authentications/auth", locals: { authentications: current_user.authentications } %></li>
+    <% else %>
+      <li><%= link_to image_tag("twitter_64.png", size: "32x32"), '/auth/twitter', :rel => 'external' %></li>
+      <li><%= link_to image_tag("facebook_64.png", size: "32x32"), '/auth/facebook' %></li>
+    <% end %>
+  </ul>
+</div>
+
+<!-- <div class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner">
     <div class="container-fluid">
       <nav>
@@ -7,16 +21,16 @@
           <li><%= link_to "My Page", '#' %></li>
           <li><%= link_to "Post", '#' %></li>
         </ul>
-	      <ul class="nav pull-right">
+        <ul class="nav pull-right">
           <% if current_user and current_user.authentications.size > 0 %>
             <li><%= render partial: "/authentications/auth", locals: { authentications: current_user.authentications } %></li>
           <% else %>
-	          <li><%= link_to image_tag("twitter_64.png", size: "32x32"), '/auth/twitter' %></li>
-	          <li><%= link_to image_tag("facebook_64.png", size: "32x32"), '/auth/facebook' %></li>
-	          <li><%= link_to "Sign up", new_user_registration_path %></li>
-	          <li><%= link_to "sign in", new_user_session_path %></li>
+            <li><%= link_to image_tag("twitter_64.png", size: "32x32"), 'https://api.twitter.com/oauth/authenticate' %></li>
+            <li><%= link_to image_tag("facebook_64.png", size: "32x32"), '/auth/facebook' %></li>
+            <li><%= link_to "Sign up", new_user_registration_path %></li>
+            <li><%= link_to "sign in", new_user_session_path %></li>
           <% end %>
         </ul>
       </nav>
   </div>
-</div>
+</div> -->
