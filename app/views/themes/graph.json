@@ -1,0 +1,37 @@
+'{
+"show-progress":false,
+"graphset":[
+    {
+        "alpha":1,
+        "background-color":"#eeeeee",
+        "background-color-2":"#eeeeee",
+        "type":"bubble",
+        "scale-x":{
+            
+        },
+        "scale-y":{
+            
+        },
+        "plot":{
+            "preview":false
+        },
+        "plotarea":{
+            "position":"0% 0%",
+            "background-image":"images/bg1.jpg",
+            "background-repeat":false,
+            "background-transparent":true,
+            "margin-top":0,
+            "margin-right":0,
+            "margin-left":0,
+            "margin-bottom":0
+        },
+        "series":[
+            {
+                "values":[[1,14,24.5],
+                [1,48,15.5],
+                "text": 'Item 0'
+            }
+        ]
+    }
+]
+}'

@@ -1,0 +1,31 @@
+<script type="text/javascript" charset="utf-8">
+ $(function(){
+    new Highcharts.Chart({
+
+        chart: {
+            renderTo: 'data_chart',
+            type: 'bubble',
+            zoomType: 'xy'
+        },
+
+        title: {
+            text: 'Feelings'
+        },
+
+        series: [{
+          name: 'Happy',
+          data: <%= @data.has_key?(1) ? @data[1] : [] %>
+        }, {
+          name: 'Angry',
+          data: <%= @data.has_key?(2) ? @data[2] : [] %>
+        }, {
+          name: 'Sad',
+          data: <%= @data.has_key?(3) ? @data[3] : [] %>
+        }, {
+          name: 'Love',
+          data: <%= @data.has_key?(4) ? @data[4] : [] %>
+        }]
+    });
+  });
+</script>
+

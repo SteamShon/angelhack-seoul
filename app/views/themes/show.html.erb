@@ -1,15 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>User:</b>
-  <%= @theme.user_id %>
-</p>
+<ul data-role="listview">
+<% @user_themes.each do |theme|%>
+  <li id=<%= "theme" %>>
+      <%= image_tag('#', :class => "ui-li-icon") %>
+      <%= link_to theme.title, theme_path(theme.id), { remote: true }  %> 
+  </li>
+<% end %>
+</ul>
 
-<p>
-  <b>Title:</b>
-  <%= @theme.title %>
-</p>
+<div id="bubble_chart" style="width: 70%; height: 40%;"></div>
 
 
-<%= link_to 'Edit', edit_theme_path(@theme) %> |
-<%= link_to 'Back', themes_path %>
+<%= link_to 'show chart', theme_path(1), { remote: true} %>
+<div id="data_chart">
+</div>
