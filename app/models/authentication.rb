@@ -1,5 +1,5 @@
 class Authentication < ActiveRecord::Base
-  attr_accessible :provider, :uid, :user_id
+  attr_accessible :provider, :uid, :user_id, :token, :token_secret
   belongs_to :user
   def provider_name
     if provider == 'open_id'
