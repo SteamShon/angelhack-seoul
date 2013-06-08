@@ -8,19 +8,19 @@ class ThemesController < ApplicationController
   # GET /themes
   # GET /themes.json
   def index
-    @themes = Theme.all
-
+    @user_themes = Theme.where("user_id = ?", current_user.id).order("created_at")
+    
     respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @themes }
+      format.html #index.html.erb
+      format.json { render json: @user_themes }
     end
   end
 
   # GET /themes/1
   # GET /themes/1.json
   def show
-    @user_themes = Theme.find_all_by_user_id(params[:id],:order => 'created_at')
     @user_themes_feelings = Post.find_all_by_theme_id(params[:id])
+  
     @data = {}
     @user_themes_feelings.each_with_index do |post, idx|
       if @data.has_key?(post.emotion_id) == false

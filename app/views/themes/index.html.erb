@@ -1,25 +1,17 @@
-<h1>Listing themes</h1>
+<p id="notice"><%= notice %></p>
 
-<table>
-  <tr>
-    <th>User</th>
-    <th>Title</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @themes.each do |theme| %>
-  <tr>
-    <td><%= theme.user_id %></td>
-    <td><%= theme.title %></td>
-    <td><%= link_to 'Show', theme %></td>
-    <td><%= link_to 'Edit', edit_theme_path(theme) %></td>
-    <td><%= link_to 'Destroy', theme, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+<ul data-role="listview" data-split-icon="star" data-split-theme="d">
+<% @user_themes.each do |theme|%>
+  <li>
+      <%= image_tag(theme.get_photo_url, :class => 'ui_li_icon') %>
+      <%= link_to theme.title, theme_path(theme.id), { remote: true }  %> 
+      <%= link_to "Open Storybook", post_path(theme.id) %>
+  </li>
 <% end %>
-</table>
+</ul>
 
-<br />
+<div id="bubble_chart" style="width: 70%; height: 40%;"></div>
 
-<%= link_to 'New Theme', new_theme_path %>
+
+<div id="data_chart">
+</div>
