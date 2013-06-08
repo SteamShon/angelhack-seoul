@@ -1,0 +1,22 @@
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <nav>
+        <ul class="nav pull-left">
+          <li><%= link_to "Home", signed_in? ? '#' : root_path %></li>
+          <li><%= link_to "My Page", '#' %></li>
+	  <li><%= link_to "Post", '#' %></li>
+        </ul>
+	<ul class="nav pull-right">
+          <% if current_user and current_user.authentications.size > 0 %>
+            <li><%= render partial: "/authentications/auth", locals: { authentications: current_user.authentications } %></li>
+          <% else %>
+	    <li><%= link_to image_tag("twitter_64.png", size: "32x32"), '/auth/twitter' %></li>
+	    <li><%= link_to image_tag("facebook_64.png", size: "32x32"), '/auth/facebook' %></li>
+	    <li><%= link_to "Sign up", new_user_registration_path %></li>
+	    <li><%= link_to "sign in", new_user_session_path %></li>
+          <% end %>
+        </ul>
+      </nav>
+  </div>
+</div>

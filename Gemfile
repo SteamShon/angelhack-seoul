@@ -9,6 +9,14 @@ gem 'sqlite3'
 gem 'devise'
 gem 'jquery_mobile_rails'
 gem 'bootstrap-sass'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'safe_attributes'
+gem 'twitter'
+gem 'fb_graph'
+gem 'paperclip', '~> 3.0'
+gem "font-awesome-rails"
 
 # Gems used only for assets and not required
 # in production environments by default.
