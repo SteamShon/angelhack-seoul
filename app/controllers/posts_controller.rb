@@ -36,7 +36,9 @@ class PostsController < ApplicationController
   # GET /posts/new.json
   def new
     @post = Post.new
-
+    if current_user.themes.size == 0
+      current_user.themes.build(title: "Default")
+    end
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @post }
@@ -52,7 +54,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(params[:post])
-
+    
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
