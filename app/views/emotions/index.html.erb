@@ -6,7 +6,22 @@
 	emotion.emotion_type,
 	posts_path(emotion: emotion.id), rel: "external" %>
         <%= link_to image_tag("pen.png", size: "32x32", alt: 'write something about this'), 
-	    new_post_path(emotion: emotion.id), rel: "external" %>
+
+	    new_post_path, rel: "external" %>
+      
+    </td>
+  </tr>
+  <tr>
+    <td>
+        <% if @each_sum[emotion.id] != nil %>
+        <%= @each_sum[emotion.id]  %> ,
+        <%= @each_sum[emotion.id]/@total_sum*100 %> % 
+        <% else %>
+        <%= 0 %> ,
+        <%= 0 %>
+        <% end %>
+
+
     </td>
   </tr>
 <% end %>

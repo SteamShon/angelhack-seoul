@@ -2,7 +2,7 @@
   <%= f.hidden_field :user_id, value: current_user.id %>
   
   <%= f.select 'theme_id', current_user.themes.collect { |t| [ t.title, t.id] } %>
-  <%= link_to 'New theme', new_theme_path %><br />
+  <%= link_to 'New theme', new_theme_path(emotion: params[:emotion]) %><br />
   <hr> 
   <%= f.select 'emotion_id', all_emotions.collect { |e| [ e.emotion_type, e.id] }, selected: params[:emotion] %><br />
   

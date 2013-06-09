@@ -3,7 +3,9 @@ class EmotionsController < ApplicationController
   # GET /emotions.json
   def index
     @emotions = Emotion.all
-
+    @each_sum = Post.count(:group => "posts.emotion_id")
+    @total_sum = Post.sum("posts.emotion_id")
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @emotions }
