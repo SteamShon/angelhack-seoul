@@ -1,7 +1,8 @@
-<ul>
-<% @posts.each do |post| %>
-  <li><%= link_to image_tag(post.photo.url(:thumb)) + post.title , post %>
-      <%= link_to image_tag("button_cancel.png", size: "24x24"), post, method: :delete, 
+<ul data-role='listview' data-inset='true'>
+  <% @posts.each do |post| %>
+    <li>
+      <%= link_to image_tag(post.photo.url(:thumb)) + content_tag('h2', post.title), post %>
+      <%= link_to "x", post, method: :delete, 'data-icon' => "delete", 
 	data: { confirm: "Are you sure?" } %>
   </li>
 <% end %>
