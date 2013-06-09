@@ -2,13 +2,13 @@
   <ul>
     <%# if current_user and current_user.authentications.size > 0 %>
     <% if user_signed_in? %>
-      <li><%= link_to 'Home', emotions_path, class: "ui-state-persist ui-btn-active tabmenu", :rel => 'external' %></li>
-      <li><%= link_to 'My Page', themes_path, class: 'tabmenu', :rel => 'external' %></li>
-      <li><%= link_to 'Write', emotions_path, class: 'tabmenu', :rel => 'external' %></li>
+      <li><%= link_to 'Home', emotions_path, class: "ui-state-persist ui-btn-active tabmenu", :rel => 'external', "data-ajax" => false %></li>
+      <li><%= link_to 'My Page', themes_path, class: 'tabmenu', :rel => 'external', "data-ajax" => false %></li>
+      <li><%= link_to 'Write', emotions_path, class: 'tabmenu', :rel => 'external', "data-ajax" => false %></li>
       <li><%= render partial: "/authentications/auth", locals: { authentications: current_user.authentications } %></li>
     <% else %>
-      <li><%= link_to image_tag("twitter_64.png", size: "32x32"), '/auth/twitter', :rel => 'external' %></li>
-      <li><%= link_to image_tag("facebook_64.png", size: "32x32"), '/auth/facebook', :rel => 'external' %></li>
+      <li><%= link_to image_tag("twitter_64.png", size: "32x32"), '/auth/twitter', :rel => 'external', "data-ajax" => false %></li>
+      <li><%= link_to image_tag("facebook_64.png", size: "32x32"), '/auth/facebook', :rel => 'external', "data-ajax" => false %></li>
     <% end %>
   </ul>
 </div>
