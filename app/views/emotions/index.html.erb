@@ -2,9 +2,10 @@
 <table>
 <% @emotions.each do |emotion| %>
   <tr>
-    
-    <td><%= image_tag "angry.png", size: '64x64', alt: 'I am angry!' %><%= emotion.emotion_type %></td>
-    <td><%= link_to 'Read them', posts_path(emotion: emotion.id), rel: "external" %></td>
+    <td><%= link_to image_tag(emotion.emotion_type.downcase + '.png', size: '64x64', alt: 'I am angry!') + 
+	emotion.emotion_type,
+	posts_path(emotion: emotion.id), rel: "external" %>
+    </td>
   </tr>
 <% end %>
 </table>

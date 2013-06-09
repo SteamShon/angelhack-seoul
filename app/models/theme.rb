@@ -8,7 +8,7 @@ class Theme < ActiveRecord::Base
     if temp.size != 0 
       return temp[0].photo.url(:thumb)
     else
-      return ''
+      return 'blue_square.png'
     end
   end
 end
