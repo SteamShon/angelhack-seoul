@@ -17,10 +17,10 @@
 //= require bootstrap
 //= require jquery.mobile
 
-// $(document).ready(function() {
-//   $('.tabmenu').click(function() {
-//     $('.tabmenu').removeClass('ui-btn-active');
-//     $(this).addClass('ui-btn-active');
-//     return false;
-//   });
-// });
+$(document).ready(function() {
+  $('.tabmenu').on('click', function(event) {
+    event.preventDefault();
+    $('.tabmenu').removeClass('ui-btn-active ui-state-persist');
+    $(this).addClass('ui-btn-active').addClass('ui-state-persist');
+  });
+});
