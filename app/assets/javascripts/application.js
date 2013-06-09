@@ -19,7 +19,7 @@
 
 $(document).ready(function() {
   $('.tabmenu').on('click', function(event) {
-    event.preventDefault();
+    //event.preventDefault();
     $('.tabmenu').removeClass('ui-btn-active ui-state-persist');
     $(this).addClass('ui-btn-active').addClass('ui-state-persist');
   });
