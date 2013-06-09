@@ -1,0 +1,11 @@
+<ul>
+<% @comments.each do |comment| %>
+  <li>
+    <%= link_to comment.body, comment %>
+    <%= comment.created_at %>
+    <%= link_to image_tag("button_cancel.png", size: "24x24"), comment, 
+	method: :delete, data: { confirm: "Are you sure?" } %>
+  </li>
+<% end %>
+</ul>
+

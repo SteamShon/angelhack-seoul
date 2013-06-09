@@ -25,7 +25,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @emotion = Emotion.find(@post.emotion_id)
-    
+    @comments = @post.comments
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @post }
