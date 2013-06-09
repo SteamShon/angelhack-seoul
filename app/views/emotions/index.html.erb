@@ -15,13 +15,12 @@
     <td>
         <% if @each_sum[emotion.id] != nil %>
         <%= @each_sum[emotion.id]  %> ,
-        <%= @each_sum[emotion.id]/@total_sum%>
+        <%= @each_sum[emotion.id]/@total_sum*100 %> % 
         <% else %>
         <%= 0 %> ,
         <%= 0 %>
         <% end %>
 
-	    new_post_path(emotion: emotion.id), rel: "external" %>
 
     </td>
   </tr>
