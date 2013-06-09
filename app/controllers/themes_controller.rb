@@ -43,7 +43,6 @@ class ThemesController < ApplicationController
   # GET /themes/new.json
   def new
     @theme = Theme.new
-
     respond_to do |format|
       format.html # new.html.erb
       #format.json { render json: @theme }
@@ -62,7 +61,10 @@ class ThemesController < ApplicationController
 
     respond_to do |format|
       if @theme.save
-        format.html { redirect_to @theme, notice: 'Theme was successfully created.' }
+        format.html { 
+          redirect_to controller: "posts", action: "new", emotion: params[:emotion]
+          
+        }
         format.json { render json: @theme, status: :created, location: @theme }
       else
         format.html { render action: "new" }
