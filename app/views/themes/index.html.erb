@@ -1,17 +1,24 @@
 <p id="notice"><%= notice %></p>
 
-<ul data-role="listview" data-split-icon="star" data-split-theme="d">
+
+<ul data-role="listview" data-inset="true" data-split-theme="a">
 <% @user_themes.each do |theme|%>
   <li>
-      <%= image_tag(theme.get_photo_url, :class => 'ui_li_icon') %>
-      <%= link_to theme.title, theme_path(theme.id), { remote: true }  %> 
-      <%= link_to "Open Storybook", theme_path(theme), rel: "external" %>
-  </li>
+    <%= link_to image_tag(theme.get_photo_url) + theme.title + content_tag(:p,"Open your StoryBook!", :class => "ui-li-aside", :style => 'color:blue;'), theme_path(theme.id), { remote: true }  %>  
+    <%= link_to "Open Storybook", theme_path(theme), rel: "external" %>
+    
+    
+    <%#= image_tag theme.get_photo_url%>
+    <%#= link_to theme.title, theme_path(theme.id), { remote: true }  %>  
+    <%#= link_to "Open Storybook", theme_path(theme), rel: "external" %>  
+	  
+  	
+	</li>
 <% end %>
 </ul>
 
-<div id="bubble_chart" style="width: 70%; height: 40%;"></div>
+<div class="ui-grid-solo">
+<div class="ui-block-a"id="data_chart">
 
-
-<div id="data_chart">
+</div>
 </div>
