@@ -16,3 +16,11 @@
 //= require_tree .
 //= require bootstrap
 //= require jquery.mobile
+
+// $(document).ready(function() {
+//   $('.tabmenu').click(function() {
+//     $('.tabmenu').removeClass('ui-btn-active');
+//     $(this).addClass('ui-btn-active');
+//     return false;
+//   });
+// });

@@ -2,7 +2,8 @@
 
 <p>
   <b>Theme:</b>
-  <%= @post.theme.title %>
+  <%= Theme.find(@post.theme_id).title %>
+  <%#= @post.theme.title %>
 </p>
 
 <p>
