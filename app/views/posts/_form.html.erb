@@ -4,7 +4,7 @@
   <%= f.select 'theme_id', current_user.themes.collect { |t| [ t.title, t.id] } %>
   <%= link_to 'New theme', new_theme_path %><br />
   <hr> 
-  <%= f.select 'emotion_id', all_emotions.collect { |e| [ e.emotion_type, e.id] } %><br />
+  <%= f.select 'emotion_id', all_emotions.collect { |e| [ e.emotion_type, e.id] }, selected: params[:emotion] %><br />
   
   <%= f.text_field :title, :placeholder => 'Title' %><br />
   
